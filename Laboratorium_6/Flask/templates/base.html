@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}To-Do App{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: darkblue; }
+        .done { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Strona główna</a>
+        <a href="{{ url_for('task_list') }}">Zadania</a>
+        <a href="{{ url_for('about') }}">O aplikacji</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

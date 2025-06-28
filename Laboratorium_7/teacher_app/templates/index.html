@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Nauczycieli</title>
+</head>
+<body>
+    <h1>Lista Nauczycieli</h1>
+    <a href="{{ url_for('add_teacher') }}">Dodaj Nauczyciela</a>
+    <ul>
+        {% for teacher in teachers %}
+            <li>{{ teacher.name }} - {{ teacher.subject }} - {{ teacher.time }}
+                <a href="{{ url_for('delete_teacher', teacher_id=teacher.id) }}">Usuń</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

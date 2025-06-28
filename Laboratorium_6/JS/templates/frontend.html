@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do (Frontend)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>To-Do App (Frontend JS)</h1>
+
+    <form id="task-form">
+        <input type="text" id="task-input" placeholder="Wpisz nowe zadanie" required>
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <ul id="task-list"></ul>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

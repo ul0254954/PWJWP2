@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Zadania{% endblock %}
+
+{% block content %}
+<h1>Lista zadań</h1>
+
+<form method="POST" action="{{ url_for('task_list') }}">
+    <input type="text" name="title" placeholder="Nowe zadanie" required>
+    <button type="submit">Dodaj</button>
+</form>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            <span class="{{ 'done' if task.done }}">{{ task.title }}</span>
+            {% if not task.done %}
+                <a href="{{ url_for('mark_done', task_id=task.id) }}">[✔]</a>
+            {% endif %}
+            <a href="{{ url_for('delete_task', task_id=task.id) }}">[🗑]</a>
+        </li>
+    {% else %}
+        <li>Brak zadań.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
